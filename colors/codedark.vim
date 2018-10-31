@@ -181,7 +181,7 @@ call <sid>hi('Number', s:cdLightGreen, {}, 'none', {})
 call <sid>hi('Boolean', s:cdBlue, {}, 'none', {})
 call <sid>hi('Float', s:cdLightGreen, {}, 'none', {})
 
-call <sid>hi('Identifier', s:cdBlue, {}, 'none', {})
+call <sid>hi('Identifier', s:cdFront, {}, 'none', {})
 call <sid>hi('Function', s:cdFront, {}, 'none', {})
 
 call <sid>hi('Statement', s:cdBlue, {}, 'none', {})
