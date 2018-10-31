@@ -350,3 +350,7 @@ call <sid>hi('texBeginEndModifier', s:cdLightBlue, {}, 'none', {})
 call <sid>hi('texDocType', s:cdPink, {}, 'none', {})
 call <sid>hi('texDocTypeArgs', s:cdLightBlue, {}, 'none', {})
 
+" Graphql:
+call <sid>hi('graphqlStructure', s:cdBlue, {}, 'none', {})
+call <sid>hi('graphqlType', s:cdFront, {}, 'none', {})
+call <sid>hi('graphqlName', s:cdLightBlue, {}, 'none', {})
