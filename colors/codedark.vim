@@ -220,6 +220,9 @@ call <sid>hi('Error', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
 
 call <sid>hi('Todo', s:cdNone, s:cdLeftMid, 'none', {})
 
+" ALE:
+call <sid>hi('ALEVirtualTextError', s:cdGray, {}, 'none', {})
+
 " Markdown:
 call <sid>hi('markdownBold', s:cdBlue, {}, 'bold', {})
 call <sid>hi('markdownCode', s:cdOrange, {}, 'none', {})
