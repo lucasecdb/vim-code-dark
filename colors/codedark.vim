@@ -254,6 +254,14 @@ call <sid>hi('xmlEndTag', s:cdGray, {}, 'none', {})
 call <sid>hi('xmlTagName', s:cdBlue, {}, 'none', {})
 call <sid>hi('xmlAttrib', s:cdLightBlue, {}, 'none', {})
 
+" JSX:
+call <sid>hi('jsxTag', s:cdGray, {}, 'none', {})
+call <sid>hi('jsxTagName', s:cdBlue, {}, 'none', {})
+call <sid>hi('jsxCloseString', s:cdGray, {}, 'none', {})
+call <sid>hi('jsxCloseTag', s:cdGray, {}, 'none', {})
+call <sid>hi('jsxComponentName', s:cdBlue, {}, 'none', {})
+call <sid>hi('jsxAttrib', s:cdLightBlue, {}, 'none', {})
+
 " CSS:
 call <sid>hi('cssBraces', s:cdFront, {}, 'none', {})
 call <sid>hi('cssInclude', s:cdPink, {}, 'none', {})
