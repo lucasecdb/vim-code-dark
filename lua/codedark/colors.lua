@@ -61,3 +61,5 @@ if vim.g.codedark_conservative == 1 then colors.light_blue = colors.front end
 if vim.g.codedark_conservative == 1 then colors.light_red = colors.orange end
 if vim.g.codedark_conservative == 1 then colors.yellow = colors.front end
 if vim.g.codedark_conservative == 1 then colors.pink = colors.blue end
+
+return colors
