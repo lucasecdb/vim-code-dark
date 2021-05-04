@@ -1,4 +1,6 @@
 local util = {}
+
+local cmd = vim.cmd
 local theme = require("codedark.theme")
 
 -- Go trough the table and highlight the group with the color values
@@ -10,40 +12,40 @@ util.highlight = function(group, color)
 
   local hl = "highlight " .. group .. " " .. style .. " " .. fg .. " " .. bg .. " " .. sp
 
-  vim.cmd(hl)
+  cmd(hl)
 
   if color.link then
-    vim.cmd("highlight! link " .. group .. " " .. color.link)
+    cmd("highlight! link " .. group .. " " .. color.link)
   end
 end
 
 -- Only define codedark if it's the active colorshceme
 function util.on_color_scheme()
   if vim.g.colors_name ~= "codedark" then
-    vim.cmd([[autocmd! Codedark]])
-    vim.cmd([[augroup! Codedark]])
+    cmd [[autocmd! Codedark]]
+    cmd [[augroup! Codedark]]
   end
 end
 
 -- Change the background for the terminal and packer windows
 util.contrast = function()
-  vim.cmd([[augroup Codedark]])
-  vim.cmd([[  autocmd!]])
-  vim.cmd([[  autocmd ColorScheme * lua require("codedark.util").on_color_scheme()]])
-  vim.cmd([[  autocmd TermOpen * setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]])
-  vim.cmd([[  autocmd FileType packer setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]])
-  vim.cmd([[  autocmd FileType qf setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]])
-  vim.cmd([[augroup end]])
+  cmd [[augroup Codedark]]
+  cmd [[  autocmd!]]
+  cmd [[  autocmd ColorScheme * lua require("codedark.util").on_color_scheme()]]
+  cmd [[  autocmd TermOpen * setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]]
+  cmd [[  autocmd FileType packer setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]]
+  cmd [[  autocmd FileType qf setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]]
+  cmd [[augroup end]]
 end
 
 -- Load the theme
 function util.load()
   -- Set the theme environment
   vim.o.background = "dark"
-  vim.cmd("hi clear")
+  cmd("hi clear")
 
   if vim.fn.exists("syntax_on") then
-    vim.cmd("syntax reset")
+    cmd("syntax reset")
   end
 
   vim.g.colors_name = "codedark"
@@ -79,6 +81,19 @@ function util.load()
   for group, colors in pairs(syntax) do
     util.highlight(group, colors)
   end
+
+  -- Legacy groups for official git.vim and diff.vim syntax
+  cmd [[hi! link diffAdded DiffAdd]]
+  cmd [[hi! link diffChanged DiffChange]]
+  cmd [[hi! link diffRemoved DiffDelete]]
+
+  -- Asciidoc (for default syntax highlighting)
+  cmd [[hi! link asciidocBackslash Keyword]]
+  cmd [[hi! link asciidocQuotedBold markdownBold]]
+  cmd [[hi! link asciidocQuotedMonospaced2 asciidocQuotedMonospaced]]
+  cmd [[hi! link asciidocQuotedUnconstrainedBold asciidocQuotedBold]]
+  cmd [[hi! link asciidocQuotedUnconstrainedEmphasized asciidocQuotedEmphasized]]
+  cmd [[hi! link asciidocURL markdownUrl]]
 
   async:send()
 end
