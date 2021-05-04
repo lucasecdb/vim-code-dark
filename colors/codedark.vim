@@ -1,8 +1,10 @@
 lua << EOF
 package.loaded['codedark'] = nil
 package.loaded['codedark.util'] = nil
+package.loaded['codedark.theme'] = nil
+package.loaded['codedark.colors'] = nil
 
-require('codedark').set()
+require('codedark').setup()
 EOF
 
 " Legacy groups for official git.vim and diff.vim syntax

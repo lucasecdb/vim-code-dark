@@ -4,10 +4,11 @@
 -- Website:                 https://github.com/lucasecdb/vim-codedark
 
 local util = require('codedark.util')
+local M = {}
 
 -- Load the theme
-local set = function ()
+function M.setup()
     util.load()
 end
 
-return { set = set }
+return M
